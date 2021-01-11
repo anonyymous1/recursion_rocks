@@ -7,8 +7,19 @@
 # Represent the two outcomes of each flip as "H" or "T"
 
 def coin_flips(n):
-    # Write code here
-    pass
+    # Write code here	    # Write code here
+    if n <= 0:
+        return ('Choose a Number higher the 0.')
+    elif n == 1:
+        outcomes = ['H', 'T']
+        return outcomes
+    else:
+        possible_outcomes = ['H', 'T']
+        outcomes = []
+        for i in possible_outcomes:
+            for outcome in coin_flips(n - 1):
+                outcomes.append(i + outcome)
+        return outcomes
 
-# print(coinFlips(2)) 
+print(coin_flips(2)) 
 # => ["HH", "HT", "TH", "TT"]

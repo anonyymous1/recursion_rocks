@@ -11,7 +11,13 @@
 
 def pretty_print(dictionary, indent):
     # Write code here
-    pass
+    for key in dictionary:
+        value = dictionary[key]
+        if type(value) is dict:
+            print (f"{indent}{key}:")
+            pretty_print(value, indent + indent)
+        else:
+            print (f"{indent}{key}: {value}")
 
 o1 = {"a": 1, "b": 2}
 o2 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero"}, "d": 4}
